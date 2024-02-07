@@ -1,0 +1,75 @@
+/* SortStringsComponent.css */
+
+.sort-strings-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+h3 {
+  margin-top: 20px;
+}
+
+.bg-yello{
+  background-color: yellow !important;
+}
+.txt-white{
+  color: white !important;
+}
+.h-black {
+    color: black !important;
+}
+
+.c-50{
+  width: 400px !important;
+}
+
+.circle-image {
+    width: 80px;
+    height: 80px;
+    /* background-color: #ccc; Placeholder color */
+    border-radius: 50%; /* Create a circular shape */
+    margin: 0 auto; /* Center the image horizontally */
+    margin-bottom: 15px; /* Add some space below the image */
+}
+
+.product-card img{
+  align-items: center !important;
+  width: 200px !important;
+}
+
+.bold {
+  font-weight: 600 !important;
+}
+
+.bg-white{
+  background-color: gold !important;
+}
+
+.my-text{
+  font-size: 14px !important;
+
+}
+
+.border-right{
+  border-left: 1px solid white !important;
+}

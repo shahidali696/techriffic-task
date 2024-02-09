@@ -7,12 +7,13 @@ import Register from './pages/Register';
 import ProductList from './pages/ProductList';
 import PrivateRoute from './core/services/PrivateRoutes';
 import Home from './pages/Home'
-import Navbar from "./components/NavBar";
+import NavBar from "./components/NavBar";
 import Footer from './components/Footer';
+import Banner from './components/Banner';
 function App() {
   return (<div>
-    <Navbar />
-
+    <NavBar />
+    <Banner />
     <Routes>
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />

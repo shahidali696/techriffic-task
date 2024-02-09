@@ -11,7 +11,7 @@ function Login() {
         email: '',
         password: ''
     });
-
+    const [message, setMessage] = useState('')
     const { email, password } = formData;
 
     const handleChange = e => {
@@ -23,14 +23,19 @@ function Login() {
         try {
             await axios.post('http://localhost:4000/api/auth/login', formData).then((res) => {
                 console.log(res);
-                const { user, access_token } = res.data;
-                dispatch(loginSuccess({ user, access_token }));
-                dispatch(saveToken(access_token));
-                localStorage.clear();
-                localStorage.setItem('user', JSON.stringify(user));
-                localStorage.setItem("token", JSON.stringify(access_token));
-                navigate("/products");
+                const { user, access_token, message } = res.data;
+                if (access_token) {
+                    dispatch(loginSuccess({ user, access_token }));
+                    dispatch(saveToken(access_token));
+                    localStorage.clear();
+                    localStorage.setItem('user', JSON.stringify(user));
+                    localStorage.setItem("token", access_token);
+                    navigate("/products");
+                }
+                setMessage(message)
+
             })
+
                 .catch((err) => {
                     console.log(err);
                 });
@@ -52,12 +57,11 @@ function Login() {
                             <input type="password" name="password" value={password} onChange={handleChange} className="form-control" placeholder="Password" required />
                         </div>
                         <button type="submit" className="btn btn-primary w-100 mb-3">Login</button>
+                        <h5 className="text-center">{message}</h5>
                     </form>
                 </div>
             </div>
         </div>
-
-
     );
 }
 

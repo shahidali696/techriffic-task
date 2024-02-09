@@ -1,20 +1,33 @@
 import React from 'react';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 function Banner() {
     return (
-        <div className="container-fluid m-0 p-2 px-4 bg-dark">
-            <div className="d-md- justify-content-md-center">
-                <div className="">
-                    <div className="row">
-                        {[...Array(12)].map((_, index) => (
-                            <div key={index} className="col-sm-3 col-md-2 col-lg-1 text-white border-right border-white">
-                                <a href="#" className="nav-link text-white my-text ">Menu {index + 1}</a>
-                            </div>
-                        ))}
-                    </div>
+        <div className='row d-md-'>
+            <Navbar bg="light" expand="lg" >
+                <div className='col-lg-2 col-sm-7 col-md-2'>
+                    <Navbar.Collapse id="basic-navbar-nav " className='d-md- justify-content-md-center text-uppercase bold h-black'>
+                        <Nav className="mr-auto">
+                            <NavDropdown title="All Categories" id="basic-nav-dropdown" className='border-right h-black'>
+                                <NavDropdown.Item href="#action/3.1" className='text-uppercase h-black'><span> Electronic</span></NavDropdown.Item>
+
+                            </NavDropdown>
+                        </Nav>
+                    </Navbar.Collapse>
                 </div>
-            </div >
-        </div >
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav" className='d-md- justify-content-md-center'>
+                    <Nav className="ml-auto">
+                        {[...Array(15)].map((_, index) => (
+                            <Nav.Link href="#link1" className='text-uppercase bold h-black'><span>Menu {index + 1} </span></Nav.Link>
+                        ))}
+
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+
+
+        </div>
     );
 }
 

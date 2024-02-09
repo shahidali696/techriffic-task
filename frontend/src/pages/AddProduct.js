@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import productService from '../core/services/productService';
+import authService from '../core/reducers/authService';
 
 function AddProductForm({ onAdd }) {
     const [show, setShow] = useState(false);
@@ -9,6 +10,7 @@ function AddProductForm({ onAdd }) {
     const [url, setUrl] = useState('');
     const [details, setDetails] = useState('');
     const [price, setPrice] = useState('');
+    const token = authService.getToken();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -18,10 +20,11 @@ function AddProductForm({ onAdd }) {
         const user = JSON.parse(localStorage.getItem('user'));
         const userId = user ? user.id : null;
         const productData = { name, type, url, details, price, userId }
-        productService.create(productData).then(() => {
+        const product = productService.create(productData, token)
+        if (product) {
             onAdd();
             handleClose();
-        });
+        };
     };
 
     return (

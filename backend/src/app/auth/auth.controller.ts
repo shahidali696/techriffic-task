@@ -6,8 +6,12 @@ export class AuthController {
   constructor(private readonly authService: AuthService) { }
 
   @Post('login')
-  create(@Body() body: any) {
+  async create(@Body() body: any) {
+    console.log('Here is login body', body)
     const { email, password } = body
-    return this.authService.signIn(email, password);
+    const res = await this.authService.signIn(email, password);
+    console.log('Here is login body', res)
+
+    return res
   }
 }

@@ -71,5 +71,16 @@ h3 {
 }
 
 .border-right{
-  border-left: 1px solid white !important;
+  border-right: 2px solid violet !important;
+}
+
+.border-left{
+  border-left: 2px solid violet !important;
+}
+.d-no-flex{
+  display: revert !important;
+}
+
+.dropdown-toggle::after {
+    margin-left: 0.855em !important;
 }

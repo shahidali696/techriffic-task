@@ -31,11 +31,11 @@ export class AuthService {
           };
         }
         return {
-          Messege: 'Password does not match'
+          message: 'Password does not match'
         };
       }
       return {
-        Messege: 'User does not exits'
+        message: 'User does not exits'
       };
     } catch (error) {
       throw new UnauthorizedException();
